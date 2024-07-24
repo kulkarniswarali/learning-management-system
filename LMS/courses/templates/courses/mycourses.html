@@ -1,0 +1,61 @@
+{% extends 'courses/index.html' %}
+{% block content %}
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Courses</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section">
+
+      <div class="container">
+
+        <div class="row">
+        {% for course in courses %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="course-item">
+              <img src="{{ course.course.photo.url }}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">{{ course.course.category }}</p>
+                  
+                </div>
+
+                <h3><a href="{% url 'courseAttempt' course.id %}">{{ course.course.heading }}</a></h3>
+                
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">{{ course.course.instructor }}</a>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;50
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
+                  </div>
+                </div>
+                <div class="progress" style="height: 5px;margin-top:1rem; margin-bottom:1rem">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{course.progress}}%;" aria-valuenow="{{course.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p>{{course.progress|floatformat:"0"}}% complete</p>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Courses Section -->
+
+  </main>
+{% endblock %}

@@ -1,0 +1,21 @@
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(125,87,170,1) 32%) !important;
+    font-family: "Raleway", sans-serif;
+    color: white;
+}
+.heading{
+    padding-top: 5rem;
+    padding-left: 4rem;
+    color: white;
+}
+
+#auth #auth-left{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+}
+
+.btn-primary{
+    background-color: white;
+    color: rgba(125,87,170,1);
+}

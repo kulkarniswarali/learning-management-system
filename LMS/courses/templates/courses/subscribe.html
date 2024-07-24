@@ -1,0 +1,41 @@
+<!-- profile_form.html -->
+{% extends 'courses/index.html' %}
+{% block content %}
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Subscribe</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Profile Form Section -->
+    <section id="profile-form" class="profile-form section">
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <label>Do you want to subscribe?</label>
+              <br>
+              <a href="{% url 'courseDetails' course.id %}" class="btn btn-light me-1 mb-1" role="button" id ="cancel">Cancel</a>
+              <input type="submit" class="btn btn-primary me-1 mb-1" value="Yes">
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Profile Form Section -->
+
+  </main>
+{% endblock %}

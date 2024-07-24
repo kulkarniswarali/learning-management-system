@@ -1,0 +1,65 @@
+{% extends 'courses/index.html' %}
+{% block content %}
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Users</h1>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Users</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Users Table Section -->
+    <section id="users-table" class="users-table section">
+
+        <div class="container">
+  
+        
+          <table class="table">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Loop through users data and generate table rows -->
+              {% for user in users %}
+              <tr>
+                <td>{{ user.user.first_name }}</td>
+                <td>{{ user.user.last_name }}</td>
+                <td>{{ user.user.email }}</td>
+                <td>{{user.category}}</td>
+                <td>
+                  <!-- Action buttons (e.g., edit and delete) -->
+                  <a href="{% url 'editusers' user.id %}" class="btn btn-sm btn-primary">Edit</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+  
+        </div>
+  
+      </section><!-- /Users Table Section -->
+  
+  </main>
+{% endblock %}
